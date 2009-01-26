@@ -39,8 +39,4 @@ public class Polynomial {
 		}
 		return builder.toString();
 	}
-
-	public int getDegree() {
-		return coefficients.length;
-	}
 }

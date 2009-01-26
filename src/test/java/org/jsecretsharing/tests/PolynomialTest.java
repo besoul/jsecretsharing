@@ -22,11 +22,6 @@ public class PolynomialTest {
 		}
 		
 		@Test
-		public void itShouldHaveOneCoefficient() throws Exception {
-			assertEquals(1, constantPolynomial.getDegree());
-		}
-		
-		@Test
 		public void itIsHumanReadable() throws Exception {
 			assertEquals("10", constantPolynomial.toString());
 		}
@@ -41,11 +36,6 @@ public class PolynomialTest {
 		public void itEvaluatesToTheFirstCoefficientPlusTheSecondCoefficientTimesX() throws Exception {
 			
 			assertEquals(BigInteger.valueOf(16), linearPolynomial.evaluate(BigInteger.valueOf(2)));
-		}
-		
-		@Test
-		public void itShouldHaveTwoCoefficients() throws Exception {
-			assertEquals(2, linearPolynomial.getDegree());
 		}
 		
 		@Test
@@ -65,11 +55,6 @@ public class PolynomialTest {
 		}
 		
 		@Test
-		public void itShouldHaveThreeCoefficients() throws Exception {
-			assertEquals(3, quadraticPolynomial.getDegree());
-		}
-		
-		@Test
 		public void itIsHumanReadable() throws Exception {
 			assertEquals("4x^2 + 3x + 10", quadraticPolynomial.toString());
 		}
@@ -83,11 +68,6 @@ public class PolynomialTest {
 		@Test
 		public void itEvaluatesCorrectly() throws Exception {
 			assertEquals(BigInteger.valueOf(325), cubicPolynomial.evaluate(BigInteger.valueOf(3)));
-		}
-		
-		@Test
-		public void itShouldHaveThreeCoefficients() throws Exception {
-			assertEquals(4, cubicPolynomial.getDegree());
 		}
 		
 		@Test
