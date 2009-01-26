@@ -2,7 +2,6 @@ package org.jsecretsharing;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.RoundingMode;
 
 public class LaGrangeInterpolator {
 	private final BigDecimal[] xValues, yValues;
@@ -31,7 +30,7 @@ public class LaGrangeInterpolator {
 				if (j != i) {
 					BigDecimal top = desiredPos.subtract(xValues[j]);
 					BigDecimal bottom = xValues[i].subtract(xValues[j]);
-					BigDecimal factor = top.divide(bottom, 3000, RoundingMode.HALF_EVEN);
+					BigDecimal factor = top.divide(bottom);
 					weight = weight.multiply(factor);
 				}
 			}
