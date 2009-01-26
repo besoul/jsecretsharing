@@ -4,20 +4,20 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class LaGrangeInterpolator {
-	private final BigDecimal[] xValues, yValues;
+	private final BigDecimal[] independentValues, dependentValues;
 	private final int degree;
 	
-	public LaGrangeInterpolator(BigInteger[] xValues, BigInteger[] yValues) {
-		if (xValues.length != yValues.length) {
+	public LaGrangeInterpolator(BigInteger[] independentValues, BigInteger[] dependentValues) {
+		if (independentValues.length != dependentValues.length) {
 			throw new IllegalArgumentException("must be the same number of X values as Y values");
 		}
 		
-		this.degree = xValues.length;
-		this.xValues = new BigDecimal[degree];
-		this.yValues = new BigDecimal[degree];
+		this.degree = independentValues.length;
+		this.independentValues = new BigDecimal[degree];
+		this.dependentValues = new BigDecimal[degree];
 		for (int i = 0; i < degree; i++) {
-			this.xValues[i] = new BigDecimal(xValues[i]);
-			this.yValues[i] = new BigDecimal(yValues[i]);
+			this.independentValues[i] = new BigDecimal(independentValues[i]);
+			this.dependentValues[i] = new BigDecimal(dependentValues[i]);
 		}
 	}
 
@@ -28,13 +28,13 @@ public class LaGrangeInterpolator {
 			BigDecimal weight = BigDecimal.ONE;
 			for (int j = 0; j < degree; j++) {
 				if (j != i) {
-					BigDecimal top = desiredPos.subtract(xValues[j]);
-					BigDecimal bottom = xValues[i].subtract(xValues[j]);
+					BigDecimal top = desiredPos.subtract(independentValues[j]);
+					BigDecimal bottom = independentValues[i].subtract(independentValues[j]);
 					BigDecimal factor = top.divide(bottom);
 					weight = weight.multiply(factor);
 				}
 			}
-			value = value.add(weight.multiply(yValues[i]));
+			value = value.add(weight.multiply(dependentValues[i]));
 		}
 		return value.toBigInteger();
 	}
