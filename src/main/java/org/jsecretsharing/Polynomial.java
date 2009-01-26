@@ -6,18 +6,6 @@ import java.util.Arrays;
 public class Polynomial {
 	private final BigInteger[] coefficients;
 	
-	public Polynomial(int... coefficients) {
-		this(convertCoefficients(coefficients));
-	}
-
-	private static BigInteger[] convertCoefficients(int... coefficients) {
-		BigInteger[] actualCoefficients = new BigInteger[coefficients.length];
-		for (int i = 0; i < coefficients.length; i++) {
-			actualCoefficients[i] = BigInteger.valueOf(coefficients[i]);
-		}
-		return actualCoefficients;
-	}
-	
 	public Polynomial(BigInteger... coefficients) {
 		this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
 	}

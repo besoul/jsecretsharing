@@ -14,7 +14,7 @@ public class PolynomialTest {
 	public static class A_Constant_Polynomial {
 		// f(x) = 10
 		// f(1) = 10
-		private static Polynomial constantPolynomial = new Polynomial(10);
+		private static Polynomial constantPolynomial = new Polynomial(BigInteger.valueOf(10));
 
 		@Test
 		public void itEvaluatesToTheFirstCoefficient() throws Exception {
@@ -35,7 +35,7 @@ public class PolynomialTest {
 	public static class A_Linear_Polynomial {
 		// f(x) = 3x + 10
 		// f(2) = 3(2) + 10 = 6 + 10 = 16
-		private final Polynomial linearPolynomial = new Polynomial(10, 3);
+		private final Polynomial linearPolynomial = new Polynomial(BigInteger.valueOf(10), BigInteger.valueOf(3));
 
 		@Test
 		public void itEvaluatesToTheFirstCoefficientPlusTheSecondCoefficientTimesX() throws Exception {
@@ -57,7 +57,7 @@ public class PolynomialTest {
 	public static class A_Quadratic_Polynomial {
 		// f(x) = 4x^2 + 3x + 10
 		// f(2) = 4(2^2) + 3(2) + 10 = 4(4) + 6 + 10 = 16 + 6 + 10 = 32
-		private final Polynomial quadraticPolynomial = new Polynomial(10, 3, 4);
+		private final Polynomial quadraticPolynomial = new Polynomial(BigInteger.valueOf(10), BigInteger.valueOf(3), BigInteger.valueOf(4));
 
 		@Test
 		public void itEvaluatesToTheFirstCoefficientPlusTheSecondCoefficientTimesXPlusTheThirdCoefficientTimesXSquared() throws Exception {
@@ -78,7 +78,7 @@ public class PolynomialTest {
 	public static class A_Cubic_Polynomial {
 		// f(x) = 10x^3 + 4x^2 + 3x + 10
 		// f(3) = 10(3^3) + 4(3^2) + 3(3) + 10 = 10(27) + 4(9) + 9 + 10 = 270 + 36 + 9 + 10 = 325
-		private final Polynomial cubicPolynomial = new Polynomial(10, 3, 4, 10);
+		private final Polynomial cubicPolynomial = new Polynomial(BigInteger.valueOf(10), BigInteger.valueOf(3), BigInteger.valueOf(4), BigInteger.valueOf(10));
 
 		@Test
 		public void itEvaluatesCorrectly() throws Exception {
@@ -99,7 +99,7 @@ public class PolynomialTest {
 	public static class A_Polynomial_With_Some_Zero_Coefficients {
 		// f(x) = 4x^2 + 10
 		// f(2) = 4(2^2) + 10 = 4(4) + 10 = 16 + 10 = 26
-		private final Polynomial sparsePolynomial = new Polynomial(10, 0, 4);
+		private final Polynomial sparsePolynomial = new Polynomial(BigInteger.valueOf(10), BigInteger.valueOf(0), BigInteger.valueOf(4));
 		
 		@Test
 		public void itEvaluatesCorrectly() throws Exception {
